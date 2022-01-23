@@ -223,7 +223,7 @@ Class customUIXMLFile : xmlFile {
     }
 
     [bool] hidden processTab($currentTab) {
-        $currentTabQuery = "//x:tabs/x:tab[@idMso='$($currentTab.idMso)']"
+        $currentTabQuery = "//x:tabs/x:tab[@idMso='$($currentTab.idMso)' or @id='$($currentTab.id)']"
     
         $tabAdded = $this.processElement( `
                 $currentTab, `
