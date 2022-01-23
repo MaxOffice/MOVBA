@@ -536,7 +536,9 @@ Class MVBuilder {
             
                 $newcui.GetButtons() | ForEach-Object {
                     $currentButton = $_.Node
-                    $relsfile.AddImageRel($currentButton.image, "images/$($currentButton.image).png")
+                    If (-not [string]::IsNullOrEmpty($currentButton.image)) {
+                        $relsfile.AddImageRel($currentButton.image, "images/$($currentButton.image).png")
+                    }
                 }
             
                 $relsfile.Save($relsfilepath)
