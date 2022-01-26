@@ -1,0 +1,35 @@
+TOPIC
+    about_libraries
+
+SHORT DESCRIPTION
+    MOVBA libraries contain VBA macros for any one Microsoft Office application,
+    divided into packages.
+
+LONG DESCRIPTION
+    A library is a directory with the following structure:
+
+    \<library name>
+    |
+    --out\
+    |
+    --packages\
+    |
+    library.json
+
+    The out\ subdirectory contains add-ins or documents created by combining 
+    packages in the library.
+
+    The packages\ subdirectory contains packages.
+
+    The library.json file contains metadata about the library, including the 
+    name of the library and the Microsoft Office application which hosts all 
+    macros contained in the library.
+
+    The Get-MVLibrary, New-MVLibrary and Build-MVLibrary cmdlets in this 
+    module are used to manage libraries.
+
+KEYWORDS
+    library, VBA, macro
+
+SEE ALSO
+    about_packages, Get-MVLibrary, New-MVLibrary, Build-MVLibrary

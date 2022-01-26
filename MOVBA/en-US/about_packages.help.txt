@@ -1,0 +1,47 @@
+TOPIC
+    about_packages
+
+SHORT DESCRIPTION
+    MOVBA packages contain VBA modules, class modules and/or Userforms.
+
+LONG DESCRIPTION
+    A package is a directory with the following structure:
+
+    \<package name>
+    |
+    --Tests\
+    |
+    --CustomUI\
+    |   |
+    |   customUI.xml
+    |
+    <package VBA files..>
+
+    A package must have a name that is unique in the library. Package names 
+    are case-insensitive.
+
+    The package directory contains VBA files, such as VBA Modules (.bas files), 
+    VBA Class Modules (.cls files), and UserForms (.frm and .frx files). When a 
+    document or an add-in is built from the library, and a package is included, 
+    all these files are imported into the resulting document or add-in.
+
+    The tests\ subdirectory should contain a document created using the 
+    Microsoft Office application that is the target of the parent library. This
+    document should have test cases for checking the functionality implemented 
+    by the package.
+
+    The CustomUI\ subdirectory contains a file called customUI14.xml, 
+    written using the Microsoft Office RibbonX specification. When a document or
+    an add-in is built from the library, and a package is included, its 
+    customUI14.xml file is merged with that of other packages and imported 
+    into the resulting document or add-in.
+
+    The Get-MVPackage, New-MVPackage and Remove-MVPackage cmdlets in this 
+    module are used to manage packages.
+
+
+KEYWORDS
+    package, VBA, macro
+
+SEE ALSO
+    about_libraries, Get-MVPackage, New-MVPackage, Build-MVPackage

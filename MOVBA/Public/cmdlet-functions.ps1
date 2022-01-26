@@ -4,7 +4,7 @@ function Get-MVPackage {
 .SYNOPSIS
     List the packages in the current library.
 .DESCRIPTION
-    The Get-MVPackage cmdlet lists the packages in the current
+    The Get-MVPackage cmdlet lists the packages in the current 
     library. It only works if invoked from a library root directory.
 
     Without parameters, it lists all packages. Otherwise, it lists
@@ -143,9 +143,8 @@ function Get-MVLibrary {
 .SYNOPSIS
     Get details of the current library.
 .DESCRIPTION
-    The Get-MVLibrary gets the properties of the current
-    library. It only works if invoked from a library root 
-    directory.
+    The Get-MVLibrary cmdlet gets the properties of the current library.
+    It only works if invoked from a library root directory.
 .EXAMPLE
     Get-MVLibrary
 
@@ -193,10 +192,10 @@ function New-MVLibrary {
         [ValidateNotNullOrEmpty()]
         [string]
         $Name,
-        # This specifies the Microsoft Office application host 
-        # of the VBA macros in this library. Currently
-        # supported values are Word, Excel and 
-        # PowerPoint. Case insensitive.
+        # This specifies the Microsoft Office application that 
+        # hosts the VBA macros in this library. Currently
+        # supported values are Word, Excel and  PowerPoint.
+        # Case insensitive.
         [Parameter(Mandatory = $true, Position = 1)]
         [ValidateScript({
                 [MVLibrary]::TestOfficeApplication($_)
@@ -218,9 +217,9 @@ function Build-MVLibrary {
 .SYNOPSIS
     Build a Microsoft Office document or add-in from the current library.
 .DESCRIPTION
-    The Build-MVLibrary builds a Microsoft Office document or add-in 
-    from the current library. It only works if invoked from a library 
-    root directory.
+    The Build-MVLibrary cmdlet builds a Microsoft Office document or 
+    add-in from the current library. It only works if invoked from a
+    library root directory.
 
     The actual file built will depend on the Application property
     of the library. In any case, the file will contain the combined

@@ -1,0 +1,25 @@
+TOPIC
+    about_MOVBA
+
+SHORT DESCRIPTION
+    A PowerShell module to manage VBA macro libraries.
+
+LONG DESCRIPTION
+    In the context of this project, a VBA macro _library_ is a collection of useful
+    functionality implemented using VBA macros. A single library contains macros 
+    for one Microsoft Office application only. 
+
+    Within a library, macros are further arranged into _packages_. Each package 
+    implements a particular functionality. A package can expose its functionality 
+    via functions that can be called from other macros, or via an interactive 
+    user interface.
+
+    Packages in a library can be combined to form a Microsoft Office document or 
+    add-in. Users can choose all packages, or selective packages, when they build 
+    a document or add-in from the library.
+
+KEYWORDS
+    library, package, VBA, macro
+
+SEE ALSO
+    about_libraries, about_packages
