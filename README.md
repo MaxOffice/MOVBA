@@ -1,6 +1,8 @@
 # MOVBA
 A PowerShell module to manage VBA macro libraries.
 
+![MOVBA Logo](/MOVBA.png)
+
 ## Concepts
 
 In the context of this project, a VBA macro _library_ is a collection of useful

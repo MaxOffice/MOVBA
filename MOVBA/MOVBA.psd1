@@ -69,7 +69,7 @@ PowerShellVersion = '5.0'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Get-MVPackage','New-MVPackage','Remove-MVPackage',"Get-MVLibrary","New-MVLibrary","Build-MVLibrary"
+FunctionsToExport = 'Get-MVPackage','New-MVPackage','Remove-MVPackage',"Get-MVLibrary","New-MVLibrary","Build-MVLibrary", "Initialize-MVLibrary"
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = ''
@@ -95,16 +95,21 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = @(
+            "vba"
+            "macros"
+            "office"
+            "MaxOffice"
+        )
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://github.com/MaxOffice/MOVBA/blob/main/LICENSE'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/MaxOffice/MOVBA'
 
         # A URL to an icon representing this module.
-        # IconUri = ''
+        IconUri = 'https://github.com/MaxOffice/MOVBA/blob/main/MOVBA.png'
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''

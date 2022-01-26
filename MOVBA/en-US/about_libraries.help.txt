@@ -25,11 +25,11 @@ LONG DESCRIPTION
     name of the library and the Microsoft Office application which hosts all 
     macros contained in the library.
 
-    The Get-MVLibrary, New-MVLibrary and Build-MVLibrary cmdlets in this 
-    module are used to manage libraries.
+    The Get-MVLibrary, New-MVLibrary, Initialize-MVLibrary and Build-MVLibrary
+    cmdlets in this module are used to manage libraries.
 
 KEYWORDS
     library, VBA, macro
 
 SEE ALSO
-    about_packages, Get-MVLibrary, New-MVLibrary, Build-MVLibrary
+    about_packages, Get-MVLibrary, New-MVLibrary, Build-MVLibrary, Initialize-MVLibrary

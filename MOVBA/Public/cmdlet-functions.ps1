@@ -205,12 +205,65 @@ function New-MVLibrary {
     )
     
     try {
+        [MVLibrary]::Create($Name, $Application)
+    }
+    catch {
+        $PSCmdlet.WriteError([MVLibrary]::CmdletError($_))
+    }
+}
+
+function Initialize-MVLibrary {
+    <#
+    .SYNOPSIS
+        Initialize a VBA macro library in the current directory.
+    .DESCRIPTION
+        The Initialize-MVLibrary cmdlet sets up a new Microsoft 
+        Office VBA macro library, which will contain VBA macros 
+        created for a specific Microsoft Office application, in
+        the current directory. Currently, a library can contain
+        macros for any one of: Microsoft Word, Excel and
+        PowerPoint.
+        
+        The cmdlet creates two  subdirectories called packages 
+        and out, if they are not already present. It also creates 
+        a file called library.json, and a .gitignore file that 
+        ignores Microsoft Office temporary files and the out 
+        subdirectory. If a .gitignore file is already present,
+        it is appended to.
+    .EXAMPLE
+        New-MVLibrary AwesomeLibrary
+    
+        This creates a Library directory named AwesomeLibrary
+        under the current directory.
+    #>
+    [CmdletBinding()]
+    [OutputType('MVLibrary')]
+    param (
+        # This specifies the name of the new library.
+        [Parameter(Mandatory = $true, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [string]
+        $Name,
+        # This specifies the Microsoft Office application that 
+        # hosts the VBA macros in this library. Currently
+        # supported values are Word, Excel and  PowerPoint.
+        # Case insensitive.
+        [Parameter(Mandatory = $true, Position = 1)]
+        [ValidateScript({
+                [MVLibrary]::TestOfficeApplication($_)
+            })]
+        [string]
+        $Application
+    )
+        
+    try {
         [MVLibrary]::Init($Name, $Application)
     }
     catch {
         $PSCmdlet.WriteError([MVLibrary]::CmdletError($_))
     }
 }
+
 
 function Build-MVLibrary {
     <#

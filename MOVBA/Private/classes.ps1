@@ -926,7 +926,7 @@ Class MVLibrary {
         Return $result
     }
 
-    [MVLibrary] static Init([string] $Name, [string] $Application) {
+    [MVLibrary] static Create([string] $Name, [string] $Application) {
         [MVLibrary]::TestOfficeApplication($Application)
 
         $projectDir = (Join-Path $pwd $Name) 
@@ -937,6 +937,21 @@ Class MVLibrary {
         New-Item $projectDir -ItemType Directory
 
         Push-Location $projectDir
+
+        $result = [MVLibrary]::Init($Name, $Application)
+
+        Pop-Location
+
+        return $result
+    }
+
+    [MVLibrary] static Init([string] $Name, [string] $Application) {
+        [MVLibrary]::TestOfficeApplication($Application)
+
+
+        If (Test-Path "$pwd\library.json" -PathType Leaf) {
+            throw "This directory is already a library."
+        }
 
         $appconfig = [PSCustomObject] @{"Name" = $Name; "Application" = $Application }
         $appconfigJSON = ConvertTo-Json $appconfig
@@ -963,12 +978,23 @@ Class MVLibrary {
                     "# output directories"
                     "out/"
                 ) -join "`n") 
+        } else {
+            Add-Content "$pwd\.gitignore" (@(
+                ""
+                "# Office temporary files"
+                "*.tmp"
+                "~$*.ppt*"
+                "~$*.doc*"
+                "~$*.xls*"
+                ""
+                "# output directories"
+                "out/"
+            ) -join "`n")
         }
 
         $result = [MVLibrary]::New($appconfig.Name, $appconfig.Application)
 
         Write-Host "$($appconfig.Application) project initialised."
-        Pop-Location
 
         return $result
     }
